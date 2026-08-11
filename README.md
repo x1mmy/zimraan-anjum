@@ -31,8 +31,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `app/robots.ts` | Serves `/robots.txt` |
 | `app/sitemap.ts` | Serves `/sitemap.xml` |
 | `public/llm.txt` | Machine-readable site summary for LLM crawlers |
-| `app/opengraph-image.tsx` | Homepage share preview (ZA monogram) |
-| `app/card/opengraph-image.tsx` | Card share preview (portrait photo) |
+| `app/opengraph-image.tsx` | Share preview for `/` and `/card` (ZA monogram) |
 
 ## Content
 
