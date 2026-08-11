@@ -19,20 +19,11 @@ export const metadata: Metadata = {
     title: "Zimraan Anjum · Digital card",
     description: cardDescription,
     url: `${contact.site}/card`,
-    images: [
-      {
-        url: "/images/zimraan.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "Zimraan Anjum",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Zimraan Anjum · Digital card",
     description: cardDescription,
-    images: ["/images/zimraan.jpg"],
   },
 };
 

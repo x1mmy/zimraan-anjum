@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `app/sitemap.ts` | Serves `/sitemap.xml` |
 | `public/llm.txt` | Machine-readable site summary for LLM crawlers |
 | `app/opengraph-image.tsx` | Homepage share preview (ZA monogram) |
-| `app/card/page.tsx` metadata | Card share preview (portrait photo) |
+| `app/card/opengraph-image.tsx` | Card share preview (portrait photo) |
 
 ## Content
 
