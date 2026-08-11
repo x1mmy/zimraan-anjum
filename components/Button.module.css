@@ -1,0 +1,117 @@
+/* Forest-anchored action.
+   primary = filled forest · secondary = hairline · quiet = text-only ·
+   accent = amber, at most one per screen. */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: none;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition-base);
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button[aria-disabled="true"],
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* Sizes */
+.lg {
+  padding: 15px 26px;
+  font-size: var(--text-body-md);
+}
+
+.md {
+  padding: 11px 20px;
+  font-size: var(--text-body-sm);
+}
+
+.sm {
+  padding: 7px 14px;
+  font-size: var(--text-meta);
+}
+
+/* Variants */
+.primary {
+  background: var(--accent);
+  color: var(--text-on-forest);
+}
+
+.primary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--accent-hover);
+  color: var(--text-on-forest);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--border-strong);
+}
+
+.secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+
+.quiet {
+  background: transparent;
+  color: var(--text-heading);
+  padding: 0;
+}
+
+.quiet:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--accent);
+}
+
+.accent {
+  background: var(--highlight);
+  color: var(--highlight-ink);
+}
+
+.accent:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--highlight-hover);
+  color: var(--highlight-ink);
+}
+
+/* On the forest contact panel the secondary action sits on a dark ground. */
+.onForest {
+  color: var(--text-on-forest);
+  border-color: var(--on-forest-border);
+}
+
+.onForest:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--text-on-forest);
+  background: rgba(250, 250, 245, 0.08);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  /* Every action clears the 44px touch minimum. `md` is 42px from its padding
+     alone, and `quiet` is text-only with no padding at all, so both need help. */
+  .md,
+  .sm {
+    min-height: 44px;
+  }
+
+  .quiet {
+    min-height: 44px;
+    padding: 10px 0;
+  }
+}

@@ -1,69 +1,108 @@
-import Image from "next/image";
+import { About } from "@/components/About";
+import { ContactCTA } from "@/components/ContactCTA";
+import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
+import { Journey } from "@/components/Journey";
+import { NavBar } from "@/components/NavBar";
+import { ReadingProgress } from "@/components/ReadingProgress";
+import { Reveal } from "@/components/Reveal";
+import { SectionHeader } from "@/components/primitives";
+import {
+  BuildLog,
+  Doors,
+  Services,
+  Strengths,
+  Ventures,
+} from "@/components/sections";
+import { contact } from "@/lib/contact";
+import { navLinks } from "@/lib/content";
 import styles from "./page.module.css";
 
-export default function Home() {
+/** JSON-LD so search engines and the LinkedIn/Slack unfurlers get the facts right. */
+function structuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: contact.name,
+    url: contact.site,
+    jobTitle: "Business Systems Engineer",
+    email: `mailto:${contact.email}`,
+    telephone: contact.phone,
+    image: `${contact.site}/images/zimraan.jpg`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Sydney",
+      addressRegion: "NSW",
+      addressCountry: "AU",
+    },
+    worksFor: { "@type": "Organization", name: "Planna" },
+    sameAs: [
+      contact.linkedin,
+      contact.github,
+      contact.stashLabs,
+      contact.triggr,
+    ],
+    knowsAbout: [
+      "Full-stack web development",
+      "AI automation",
+      "Systems integration",
+      "Product engineering",
+    ],
+  };
+}
+
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <script
+        type="application/ld+json"
+        // Serialised from the static object above — no external input.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}
+      />
+
+      <ReadingProgress />
+
+      <NavBar
+        name={contact.name}
+        role="Engineer at Planna"
+        links={navLinks}
+        action={{ label: "Digital card", href: "/card" }}
+        trackSections
+      />
+
+      <main id="main" className={styles.main}>
+        <Hero />
+
+        <Doors />
+
+        <section id="about" className={styles.section}>
+          <About />
+        </section>
+
+        <section id="journey" className={styles.section}>
+          <Reveal>
+            <SectionHeader
+              eyebrow="Journey"
+              title="Two years, intern to owning systems."
+              note="Every role below is a step where the scope got bigger. Scroll and it follows along."
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </Reveal>
+          <Journey />
+        </section>
+
+        <Ventures />
+        <BuildLog />
+        <Strengths />
+        <Services />
+
+        <section id="contact" className={styles.section}>
+          <Reveal>
+            <ContactCTA />
+          </Reveal>
+        </section>
+
+        <Footer />
       </main>
-    </div>
+    </>
   );
 }

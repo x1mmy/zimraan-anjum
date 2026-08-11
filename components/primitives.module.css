@@ -1,0 +1,181 @@
+/* Small shared pieces: the eyebrow rule, stack chips, icon links, fact rows,
+   section openers. These are the repeating motifs of the brand. */
+
+/* --- Eyebrow: 24px forest rule + mono label. The one repeating motif. ----- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  flex: none;
+  background: var(--accent);
+}
+
+.eyebrowOnForest {
+  color: var(--on-forest-muted);
+}
+
+.eyebrowOnForest::before {
+  background: var(--highlight);
+}
+
+/* --- Tag: tech-stack chip. Metadata, not a headline. -------------------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+}
+
+.tagForest {
+  color: var(--accent);
+  background: var(--accent-wash);
+  border-color: transparent;
+}
+
+.tagHighlight {
+  color: #6b5316;
+  background: var(--highlight-wash);
+  border-color: transparent;
+}
+
+.tagList {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* --- IconLink: icon-only link for social and outbound destinations. ----- */
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: transparent;
+  transition: var(--transition-base);
+}
+
+.iconLink:hover {
+  color: var(--accent);
+  background: var(--accent-wash);
+}
+
+@media (max-width: 900px) {
+  /* 34px is a comfortable mouse target but under the 44px touch minimum. */
+  .iconLink {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* --- StatRow: row of plain facts. Hairline-divided, no icons, no cards. -- */
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin: 0;
+  border-top: 1px solid var(--border-hairline);
+  padding-top: var(--space-5);
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.statValue {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-body-md);
+  color: var(--text-heading);
+  font-weight: var(--weight-medium);
+}
+
+@media (max-width: 900px) {
+  .statRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-4);
+  }
+}
+
+@media (max-width: 420px) {
+  .statRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* --- SectionHeader: mono eyebrow, heading, optional note. Asymmetric. --- */
+.sectionHeader {
+  padding-bottom: var(--space-7);
+}
+
+.sectionHeaderTitle {
+  font-size: var(--text-h2);
+  max-width: 18ch;
+}
+
+.sectionHeaderSplit {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+  gap: var(--grid-gap);
+  align-items: end;
+  margin-top: var(--space-4);
+}
+
+.sectionHeaderNote {
+  font-size: var(--text-body-md);
+  color: var(--text-muted);
+  max-width: 40ch;
+}
+
+@media (max-width: 900px) {
+  .sectionHeader {
+    padding-bottom: var(--space-6);
+  }
+
+  .sectionHeaderSplit {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .sectionHeaderTitle {
+    max-width: 24ch;
+  }
+
+  .sectionHeaderNote {
+    max-width: 52ch;
+  }
+}
+
+/* --- Prose --------------------------------------------------------------- */
+.prose {
+  font-size: var(--text-body-md);
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: var(--measure-prose);
+  text-wrap: pretty;
+}

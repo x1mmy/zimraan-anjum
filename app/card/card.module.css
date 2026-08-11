@@ -1,0 +1,194 @@
+/* The digital business card. Phone-first: this is the page people open after a
+   handshake or a QR scan, so it is one column at every width and every tap
+   target clears 44px. */
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-7) var(--space-5) var(--space-8);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.themeCorner {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.portraitRing {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+  background: var(--surface-sunken);
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Framed to match the crop set in the design file. */
+  object-position: center 14%;
+}
+
+.name {
+  margin-top: var(--space-5);
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.role {
+  margin-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rule {
+  width: 18px;
+  height: 1px;
+  flex: none;
+  background: var(--accent);
+}
+
+.blurb {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-md);
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 30ch;
+}
+
+/* --- Tap tiles ----------------------------------------------------------- */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 92px;
+  padding: var(--space-4) var(--space-2);
+  text-align: center;
+  text-decoration: none;
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  transition: var(--transition-base);
+}
+
+.tile:hover,
+.tile:active {
+  border-color: var(--border-strong);
+  background: var(--accent-wash);
+  text-decoration: none;
+}
+
+.tileLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+/* --- Actions ------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.qr {
+  width: 104px;
+  height: 104px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  /* The generated SVG draws in currentColor, so it inverts with the theme. */
+  color: var(--text-heading);
+}
+
+.footerMeta {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.backLink {
+  display: block;
+  margin-top: var(--space-6);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 380px) {
+  .page {
+    padding-inline: var(--space-4);
+  }
+
+  .tiles {
+    gap: var(--space-2);
+  }
+
+  .tile {
+    min-height: 84px;
+    padding: var(--space-3) var(--space-1);
+  }
+
+  .footer {
+    gap: var(--space-4);
+  }
+}

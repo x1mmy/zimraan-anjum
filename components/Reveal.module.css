@@ -1,0 +1,23 @@
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 900ms var(--ease-out-expo),
+    transform 900ms var(--ease-out-expo),
+    filter 700ms var(--ease-out-expo);
+}
+
+.shown {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

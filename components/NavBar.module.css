@@ -1,0 +1,212 @@
+/* Sticky nav: name left, sections centre-right, socials and theme right,
+   one action at the end. Collapses to a sheet menu under 900px. */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg-page);
+  border-bottom: 1px solid transparent;
+  transition: var(--transition-base);
+}
+
+.scrolled {
+  border-bottom-color: var(--border-hairline);
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  line-height: 1.25;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.brandMark {
+  flex: none;
+  border-radius: 7px;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.brandName {
+  font-size: var(--text-body-md);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+  letter-spacing: var(--tracking-heading);
+  white-space: nowrap;
+}
+
+.brandRole {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: var(--tracking-meta);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-5);
+  margin-left: auto;
+  align-items: center;
+}
+
+.navLink {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  color: var(--text-body);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition-base);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.navLinkActive {
+  font-weight: var(--weight-medium);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--border-hairline);
+}
+
+/* When there are no section links the utilities take the place of the nav. */
+.nav:empty + .utilities {
+  margin-left: auto;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.action {
+  display: flex;
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  margin-left: auto;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hairline);
+  background: transparent;
+  color: var(--text-heading);
+  transition: var(--transition-base);
+}
+
+.menuButton:hover {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+
+/* --- Mobile sheet -------------------------------------------------------- */
+
+.mobileMenu {
+  display: none;
+  border-top: 1px solid var(--border-hairline);
+  background: var(--bg-page);
+  padding: var(--space-5) var(--gutter) var(--space-6);
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileNavLink {
+  padding: var(--space-4) 0;
+  font-size: var(--text-lead);
+  font-weight: var(--weight-medium);
+  color: var(--text-heading);
+  letter-spacing: var(--tracking-heading);
+  border-bottom: 1px solid var(--border-hairline);
+  text-decoration: none;
+}
+
+.mobileNavLink:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.mobileAction {
+  margin-top: var(--space-5);
+}
+
+.mobileSocials {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-5);
+  margin-left: -8px;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    gap: var(--space-4);
+  }
+
+  .nav,
+  .utilities,
+  .action {
+    display: none;
+  }
+
+  .menuButton,
+  .mobileMenu {
+    display: flex;
+  }
+
+  .menuButton {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mobileSocials {
+    margin-left: -10px;
+  }
+
+  .mobileMenu {
+    flex-direction: column;
+  }
+
+  .brandRole {
+    display: none;
+  }
+}

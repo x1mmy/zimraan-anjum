@@ -1,0 +1,165 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.sticky {
+  position: sticky;
+  top: 120px;
+  padding-top: 4px;
+}
+
+.stickyLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stickyRole {
+  margin-top: var(--space-2);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+.stickyOrg {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--accent);
+}
+
+/* --- Rail ---------------------------------------------------------------- */
+
+.rail {
+  /* One source of truth for the rail's geometry, so the dots stay centred on the
+     line instead of drifting when the indent changes. */
+  --rail-x: 4px;
+  --rail-indent: var(--space-6);
+  --rail-width: 1px;
+  --dot-size: 9px;
+
+  position: relative;
+  padding-left: var(--rail-indent);
+}
+
+.railTrack,
+.railFill {
+  position: absolute;
+  left: var(--rail-x);
+  top: 6px;
+  width: var(--rail-width);
+}
+
+.railTrack {
+  bottom: 6px;
+  background: var(--border-hairline);
+}
+
+.railFill {
+  background: var(--accent);
+  transition: height 0.12s linear;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+  padding-bottom: var(--space-7);
+  opacity: 0.38;
+  transition: opacity 0.5s var(--ease-standard);
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.itemActive {
+  opacity: 1;
+}
+
+.dot {
+  position: absolute;
+  /* Centres the dot on the rail: back out of the item's indent, then offset by
+     half the dot so its midpoint lands on the line's midpoint. */
+  left: calc(
+    var(--rail-x) + (var(--rail-width) / 2) - var(--rail-indent) -
+      (var(--dot-size) / 2)
+  );
+  top: 7px;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--bg-page);
+  border: 1px solid var(--border-strong);
+  transition: background 0.3s var(--ease-standard);
+}
+
+.itemActive .dot {
+  background: var(--accent);
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.role {
+  margin-top: var(--space-2);
+  font-size: var(--text-h3);
+}
+
+.org {
+  margin-top: 2px;
+  font-size: var(--text-body-sm);
+  color: var(--accent);
+  font-weight: var(--weight-medium);
+}
+
+.note {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-md);
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 54ch;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* The sticky "Now" panel duplicates the entry you are already reading once
+     the columns stack, so it goes away rather than hovering over the rail. */
+  .sticky {
+    display: none;
+  }
+
+  .item {
+    padding-bottom: var(--space-6);
+  }
+
+  /* Dimming inactive entries is a desktop scroll effect; on a phone it just
+     makes most of the section hard to read. */
+  .item {
+    opacity: 1;
+  }
+
+  .dot {
+    background: var(--accent);
+  }
+}
