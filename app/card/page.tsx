@@ -8,15 +8,31 @@ import { contact } from "@/lib/contact";
 import { card, cardTiles } from "@/lib/content";
 import styles from "./card.module.css";
 
+const cardDescription =
+  "Product engineer in Sydney. Tap to call, email, or save my contact details.";
+
 export const metadata: Metadata = {
   title: "Digital card",
   description: `Save Zimraan Anjum's contact details — product engineer in Sydney. Call, email, LinkedIn, GitHub, or add straight to your contacts.`,
   alternates: { canonical: "/card" },
   openGraph: {
     title: "Zimraan Anjum · Digital card",
-    description:
-      "Product engineer in Sydney. Tap to call, email, or save my contact details.",
+    description: cardDescription,
     url: `${contact.site}/card`,
+    images: [
+      {
+        url: "/images/zimraan.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Zimraan Anjum",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zimraan Anjum · Digital card",
+    description: cardDescription,
+    images: ["/images/zimraan.jpg"],
   },
 };
 

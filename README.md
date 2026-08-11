@@ -1,38 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# zimraananjum.com
 
-## Getting Started
+Personal site for **Zimraan Anjum** — full-stack product engineer in Sydney. Built with Next.js App Router and deployed on Vercel.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run assets` | Regenerate QR / monogram assets |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Routes
 
-## Learn More
+- `/` — landing page
+- `/card` — digital contact card (vCard + QR)
 
-To learn more about Next.js, take a look at the following resources:
+## SEO & discovery
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| File | Purpose |
+| --- | --- |
+| `app/robots.ts` | Serves `/robots.txt` |
+| `app/sitemap.ts` | Serves `/sitemap.xml` |
+| `public/llm.txt` | Machine-readable site summary for LLM crawlers |
+| `app/opengraph-image.tsx` | Homepage share preview (ZA monogram) |
+| `app/card/page.tsx` metadata | Card share preview (portrait photo) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content
 
-## Deploy on Vercel
+Copy and contact details live in:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `lib/content.ts` — page copy
+- `lib/contact.ts` — name, email, links, vCard source
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# zimraan-anjum
-# zimraan-anjum
+## Deploy
+
+Pushes to `main` on [x1mmy/zimraan-anjum](https://github.com/x1mmy/zimraan-anjum) deploy via Vercel to [www.zimraananjum.com](https://www.zimraananjum.com).

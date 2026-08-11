@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     title: "Zimraan Anjum — Full-stack product engineer, Sydney",
     description,
     locale: "en_AU",
+    /* Image comes from app/opengraph-image.tsx (ZA monogram). */
   },
   twitter: {
     card: "summary_large_image",
     title: "Zimraan Anjum — Full-stack product engineer, Sydney",
     description,
+    /* Image comes from app/twitter-image.tsx (same monogram). */
   },
   robots: {
     index: true,

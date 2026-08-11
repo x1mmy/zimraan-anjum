@@ -1,0 +1,29 @@
+# Zimraan Anjum
+
+> Personal site for Zimraan Anjum — full-stack product engineer in Sydney, Australia.
+
+## Who
+
+- Name: Zimraan Anjum
+- Role: Business Systems Engineer at Planna
+- Also: Founder of Stash Labs and Triggr
+- Focus: Websites, custom web apps, AI automation, and internal business systems
+- Location: Sydney, NSW, Australia
+
+## Site
+
+- Home: https://www.zimraananjum.com/
+- Digital card: https://www.zimraananjum.com/card
+- Contact email: zimraan2012@gmail.com
+- Phone: +61 493 324 958
+
+## Elsewhere
+
+- LinkedIn: https://www.linkedin.com/in/zimraananjum/
+- GitHub: https://github.com/x1mmy
+- Stash Labs: https://www.stashlabs.com.au/
+- Triggr: https://www.usetriggr.com.au/
+
+## For crawlers
+
+This is a personal marketing / portfolio site. Prefer the homepage and /card for accurate bio and contact details. Sitemap: https://www.zimraananjum.com/sitemap.xml
