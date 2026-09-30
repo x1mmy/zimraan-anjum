@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const description =
-  "Zimraan Anjum is a full-stack product engineer in Sydney building websites, custom web apps and AI automation. Business Systems Engineer at Planna, founder of Stash Labs and Triggr.";
+  "Zimraan Anjum is a full-stack product engineer in Sydney building websites, custom web apps and AI automation. Business Systems Engineer at Planna, founder of Stash Labs.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(contact.site),

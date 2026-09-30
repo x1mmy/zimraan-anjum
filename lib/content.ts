@@ -31,7 +31,7 @@ export const hero = {
 
 export const facts = [
   { label: "Role", value: "Business Systems Engineer, Planna" },
-  { label: "Also", value: "Founder, Stash Labs & Triggr" },
+  { label: "Also", value: "Founder, Stash Labs" },
   { label: "Based", value: "Sydney, Australia" },
   { label: "Focus", value: "Web products and automation" },
 ] as const;
@@ -123,12 +123,6 @@ export const journey = [
     org: "Planna",
     note: "Internal tools, platforms and automation across the Arche Ventures portfolio: Planna, ApproveAll and Woodsmead. I own projects end to end, from scoping and architecture through to deployment and stakeholder handoff.",
   },
-  {
-    date: "2026 – Present",
-    role: "Founder",
-    org: "Triggr",
-    note: "Done-for-you AI automation. Where the last two years point: find the manual work, build the system that removes it.",
-  },
 ] as const;
 
 export const ventures = [
@@ -140,17 +134,18 @@ export const ventures = [
     href: contact.stashLabs,
     display: "stashlabs.com.au",
   },
-  {
-    eyebrow: "Founder",
-    name: "Triggr",
-    body: "Done-for-you AI automation for Australian businesses. We map where the manual work is, then build the systems that remove it: quoting, CRM handoffs, follow-ups, reporting.",
-    tags: ["AI automation", "Integrations", "Internal tools"],
-    href: contact.triggr,
-    display: "usetriggr.com.au",
-  },
 ] as const;
 
 export const buildLog = [
+  {
+    month: "September 2026",
+    lines: [
+      "Built a client onboarding automation for ApproveAll. HubSpot deal hits the pipeline, five-step Pipedream workflow creates a Monday project card with a document checklist, builds a Dropbox folder tree, and mints an encrypted client form link — conditional logic across three states, eight project types, Google Maps autocomplete. Added seven required fields so sales cannot kick off onboarding without proper project context. Live within two weeks.",
+      "The hard part was not the pipeline. It was making sure a deal with missing context never generates a client form.",
+      "Redesigned the full ApproveAll site on Webflow with reusable templates for case studies and services. Fixed three defects in the exec portal cashflow model — overrides now carry forward, income and cost edits are independent, and you can actually clear an override. Sunsetted Bubble entirely. Connected Claude workflow telemetry to the metrics dashboard so leadership can see per-report generation progress and AI costs. Expanded the dashboard with WM utilisation, profitability per project, AA invoice forecasting, an app integration map, and a group org chart across three businesses.",
+      "The metrics dashboard started as a replacement for one Google Sheet. It now runs operations for the group.",
+    ],
+  },
   {
     month: "August 2026",
     lines: [
@@ -265,14 +260,13 @@ export const contactSection = {
 } as const;
 
 export const footer = {
-  blurb: "Full-stack product engineer. Founder at Stash Labs and Triggr.",
+  blurb: "Full-stack product engineer. Founder at Stash Labs.",
   copyright: `© ${new Date().getFullYear()} Zimraan Anjum`,
   columns: [
     {
       title: "Ventures",
       items: [
         { label: "Stash Labs", href: contact.stashLabs },
-        { label: "Triggr", href: contact.triggr },
         { label: "Digital card", href: "/card" },
       ],
     },
@@ -298,7 +292,6 @@ export const cardTiles: readonly {
   { label: "LinkedIn", icon: "linkedin", href: contact.linkedin },
   { label: "GitHub", icon: "github", href: contact.github },
   { label: "Stash Labs", icon: "external-link", href: contact.stashLabs },
-  { label: "Triggr", icon: "external-link", href: contact.triggr },
 ];
 
 export const card = {

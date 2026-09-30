@@ -54,8 +54,8 @@ export function Ventures() {
       <Reveal>
         <SectionHeader
           eyebrow="Ventures"
-          title="Two companies I build inside."
-          note="One makes software for Australian small businesses. The other builds the automation that runs behind them."
+          title="The company I build on the side."
+          note="Software for Australian small businesses — LifeCycle, TimeTally, and the client sites that come with them."
         />
       </Reveal>
       <VentureCards />

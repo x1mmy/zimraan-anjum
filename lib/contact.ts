@@ -12,7 +12,7 @@ export const contact = {
   lastName: "Anjum",
   title: "Product Engineer",
   role: "Business Systems Engineer, Planna",
-  org: "Triggr",
+  org: "Planna",
   location: "Sydney, Australia",
   email: "zimraan2012@gmail.com",
   phone: "+61493324958",
@@ -21,7 +21,6 @@ export const contact = {
   linkedin: "https://www.linkedin.com/in/zimraananjum/",
   github: "https://github.com/x1mmy",
   stashLabs: "https://www.stashlabs.com.au/",
-  triggr: "https://www.usetriggr.com.au/",
 } as const;
 
 /** RFC 6350-ish vCard 3.0 — the format iOS and Android both import cleanly. */
@@ -36,7 +35,6 @@ export function buildVCard(): string {
     `TEL;TYPE=CELL:${contact.phone}`,
     `EMAIL:${contact.email}`,
     `URL:${contact.site}`,
-    `URL:${contact.triggr}`,
     `URL:${contact.stashLabs}`,
     `URL:${contact.linkedin}`,
     "ADR;TYPE=WORK:;;;Sydney;NSW;;Australia",

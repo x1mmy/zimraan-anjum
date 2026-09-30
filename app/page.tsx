@@ -40,7 +40,6 @@ function structuredData() {
       contact.linkedin,
       contact.github,
       contact.stashLabs,
-      contact.triggr,
     ],
     knowsAbout: [
       "Full-stack web development",

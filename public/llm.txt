@@ -6,7 +6,7 @@
 
 - Name: Zimraan Anjum
 - Role: Business Systems Engineer at Planna
-- Also: Founder of Stash Labs and Triggr
+- Also: Founder of Stash Labs
 - Focus: Websites, custom web apps, AI automation, and internal business systems
 - Location: Sydney, NSW, Australia
 
@@ -22,7 +22,6 @@
 - LinkedIn: https://www.linkedin.com/in/zimraananjum/
 - GitHub: https://github.com/x1mmy
 - Stash Labs: https://www.stashlabs.com.au/
-- Triggr: https://www.usetriggr.com.au/
 
 ## For crawlers
 

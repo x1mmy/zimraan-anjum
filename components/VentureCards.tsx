@@ -8,8 +8,8 @@ import { ventures } from "@/lib/content";
 import { clamp01, isNarrow, useScrollFrame } from "@/lib/motion";
 import styles from "./sections.module.css";
 
-/** Depth per card, so the pair drifts apart slightly as it passes the viewport. */
-const DEPTHS = [-22, 22];
+/** Soft vertical drift as the card passes the viewport. */
+const DRIFT = -16;
 
 export function VentureCards() {
   const driftRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -18,7 +18,7 @@ export function VentureCards() {
     const vh = window.innerHeight;
     const narrow = isNarrow();
 
-    driftRefs.current.forEach((el, i) => {
+    driftRefs.current.forEach((el) => {
       if (!el) return;
       if (narrow) {
         el.style.transform = "";
@@ -26,7 +26,7 @@ export function VentureCards() {
       }
       const rect = el.getBoundingClientRect();
       const p = clamp01((vh - rect.top) / (vh + rect.height)) - 0.5;
-      el.style.transform = `translate3d(0, ${(p * DEPTHS[i % DEPTHS.length]).toFixed(2)}px, 0)`;
+      el.style.transform = `translate3d(0, ${(p * DRIFT).toFixed(2)}px, 0)`;
     });
   });
 
